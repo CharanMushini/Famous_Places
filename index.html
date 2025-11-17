@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Famous Indian Places</title>
+
+    <link rel="Stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>Famous Indian Places</header>
+
+    <div id="container">
+      <div class="label">Original Language (Hindi):</div>
+      <div id="original" class="text-box"></div>
+
+      <div class="label">Translated Language (English):</div>
+      <div id="translated" class="text-box"></div>
+
+      <img id="image" />
+
+      <div class="controls">
+        <button onclick="prev()" id="prevBtn">Previous</button>
+        <button onclick="next()" id="nextBtn">Next</button>
+      </div>
+    </div>
+
+    <footer>
+      Developed by Charan Mushini | Date: 16-Nov-2025<br />
+      Test is held on 16th Nov 2025 @ 11:00AM – 2:00PM IST
+    </footer>
+
+    <script>
+      const data = [
+        {
+          original: "ताज महल भारत का एक विश्व प्रसिद्ध स्मारक है।",
+          translated: "The Taj Mahal is a world-famous monument of India.",
+          img: "https://tse3.mm.bing.net/th/id/OIP.jTI8y4E1hclEzC8u-FRf_gHaE9?pid=Api&P=0&h=180",
+        },
+        {
+          original: "जयपुर को 'पिंक सिटी' कहा जाता है।",
+          translated: "Jaipur is known as the Pink City.",
+          img: "https://tse3.mm.bing.net/th/id/OIP.8Bz9h_HEERxZ6-legwNieQHaEA?pid=Api&P=0&h=180",
+        },
+        {
+          original: "वाराणसी दुनिया के सबसे पुराने बसे हुए शहरों में से एक है।",
+          translated:
+            "Varanasi is one of the oldest living cities in the world.",
+          img: "https://tse3.mm.bing.net/th/id/OIP.zI_yaGZULWe0Up8M9fAywAHaEy?pid=Api&P=0&h=180",
+        },
+        {
+          original: "चारमीनार हैदराबाद का सबसे प्रसिद्ध ऐतिहासिक स्मारक है।",
+          translated:
+            "Charminar is the most famous historical monument of Hyderabad.",
+          img: "https://tse1.mm.bing.net/th/id/OIP.7IrJMGZmyQZaalL-laIdNwHaE5?pid=Api&P=0&h=180",
+        },
+      ];
+
+      let index = 0;
+
+      function render() {
+        document.getElementById("original").textContent = data[index].original;
+        document.getElementById("translated").textContent =
+          data[index].translated;
+        document.getElementById("image").src = data[index].img;
+
+        document.getElementById("prevBtn").disabled = index === 0;
+        document.getElementById("nextBtn").disabled = index === data.length - 1;
+      }
+
+      function next() {
+        if (index < data.length - 1) {
+          index++;
+          render();
+        }
+      }
+
+      function prev() {
+        if (index > 0) {
+          index--;
+          render();
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>
